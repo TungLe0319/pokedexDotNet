@@ -1,9 +1,11 @@
 <template>
-  <div class="about text-center">
-    <h1>Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     <h1> MY POKEMON TEAMS</h1>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -19,7 +21,5 @@ export default {
 </script>
 
 <style scoped>
-img {
-  max-width: 100px;
-}
+
 </style>
