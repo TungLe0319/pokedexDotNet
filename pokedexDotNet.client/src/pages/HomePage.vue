@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2 px-0 p">
+      <div class="col-md-4 px-0 p">
         <div class="p-1 bg-danger text-light text-center">
           <h4>Pokemon List</h4>
         </div>
