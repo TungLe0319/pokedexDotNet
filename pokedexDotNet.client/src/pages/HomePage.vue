@@ -2,8 +2,9 @@
   
   <div class="container-fluid">
     <div class="row ">
-      <div class="col-md-3 d-flex justify-content-start align-items-start">
-        <ul class=" p-0 m-0">
+      <div class="col-md-2  px-0 p">
+        <div class=" p-1  bg-danger text-light text-center"><h4 >Pokemon List</h4></div>
+        <ul class=" px-3 m-0">
 <PokeList v-for="p in pokemon" :pokemon="p" :key="p.id" />
         </ul>
       </div>
