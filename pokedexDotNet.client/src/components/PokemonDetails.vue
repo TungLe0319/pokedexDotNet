@@ -22,7 +22,7 @@ export default {
 
     return {
       editable,
-      details: computed(() => AppState.pokemonDetails),
+      details: computed(() => AppState.activePokemon),
     };
   },
 };
