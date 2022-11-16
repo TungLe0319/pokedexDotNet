@@ -11,11 +11,14 @@ async getAllPokemon(){
   })
   console.log(res.data);
   AppState.pokemon = res.data.results.map(p=> new Pokemon(p))
+  // AppState.pokemon.forEach(p => console.log(p.id))
 }
 
 async getPokemonDetails(id){
   const res = await pokeAPI.get(`pokemon/${id}`)
-  console.log(res.data);
+ AppState.pokemonDetails = res.data
+ console.log(AppState.pokemonDetails);
+
 }
 }
 export const pokemonService = new PokemonService()
