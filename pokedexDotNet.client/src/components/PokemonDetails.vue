@@ -12,31 +12,83 @@
     </div>
   </div> -->
   <div class="card mt-2 rounded-4 position-relative w-100 p-3">
-    <div>Stats</div>
     <div class="pokemonImg">
       <img :src="pokemon?.img" alt="" height="200" width="200" />
     </div>
-    <div>
-      <ul class="list-group">
-        <li v-for="i in pokemon?.stats" class="list-group-item ">
-          <b>{{ i?.stat?.name }}</b>
 
-          <div class="progress">
-            <div
-              class="progress-bar test"
-              role="progressbar"
-              aria-label="Example with label"
-              aria-valuenow=""
-              aria-valuemin="0"
-              aria-valuemax="100"
-            :style="{ 'width': i?.base_stat + '%' }"
-            >
-              {{ i?.base_stat }}
+ 
+<div class="d-flex">
+  <button
+      class="btn border-0 border-bottom "
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseStats"
+      aria-expanded="false"
+      aria-controls="collapseStats"
+    >
+      stats
+    </button>
+      <button
+      class="btn border-0 border-bottom "
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseAbilities"
+      aria-expanded="false"
+      aria-controls="collapseStats"
+    >
+      Abilities
+    </button>
+      <button
+      class="btn border-0 border-bottom "
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseEvolutions"
+      aria-expanded="false"
+      aria-controls="collapseStats"
+    >
+      Evolutions
+    </button>
+</div>
+
+
+
+    <div class="collapse" id="collapseStats">
+      <div class="card-body">
+        <ul class="list-group border-0">
+          <li v-for="i in pokemon?.stats" class="list-group-item">
+            <b>{{ i?.stat?.name }}</b>
+            <div class="d-flex justify-content-between">
+              <div class="progress w-75">
+                <div
+                  class="progress-bar test"
+                  role="progressbar"
+                  aria-label="Example with label"
+                  aria-valuenow=""
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  :style="{ width: i?.base_stat + '%' }"
+                >
+                  {{ i?.base_stat }}
+                </div>
+              </div>
+              <p class="mb-0 opacity-75 me-3">100</p>
             </div>
-          </div>
-          <p class="mb-0 opacity-75">{{ i?.base_stat }}</p>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+       <div class="collapse" id="collapseAbilities">
+      <div class="card-body">
+        <ul class="list-group border-0">
+          <li v-for="i in pokemon?.abilities" class="list-group-item">
+            <img :src="i?.ability.url" alt="" width="30" height="30">
+            <b>{{ i.ability.name }}</b>
+          
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -78,8 +130,8 @@ export default {
 <style lang="scss" scoped>
 .pokemonImg {
   position: absolute;
-  top: -100px;
-  right: -90px;
+  top: -120px;
+  right: -85px;
   z-index: 9;
 }
 .test {

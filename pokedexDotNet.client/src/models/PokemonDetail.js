@@ -9,5 +9,6 @@ export class PokemonDetail {
     this.species = data.species;
     this.types = data.types;
     this.stats = data.stats
+    // this.abilityImg = 
   }
 }
