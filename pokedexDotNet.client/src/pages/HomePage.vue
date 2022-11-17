@@ -16,9 +16,9 @@
           <PokeList v-for="p in pokemon" :pokemon="p" :key="p.id" />
         </ul> -->
       </div>
-      <!-- <div class="col-md-6 d-flex justify-content-center align-items-center ">
+      <div class="col-md-6 d-flex justify-content-center align-items-center ">
         <PokemonDetails :pokemon="details"/>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
