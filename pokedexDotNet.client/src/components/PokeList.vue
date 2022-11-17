@@ -1,22 +1,11 @@
 <template>
-  <!-- <li class="d-flex justify-content-between my-2 hover selectable" @click="getDetails()">
-    <img
-      width="30"
-      height="30"
-      src="https://cdn-icons-png.flaticon.com/512/361/361998.png"
-      alt=""
-    />
-    <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
-    <img :src="pokemon?.img" alt="" width="50" height="50" />
-   
-  </li> -->
   <div
-    :class=" active? 'bg-primary' : '', pokemon.types[0].color "
+    :class="(active ? 'bg-primary' : '', pokemon.types[0].color)"
     class="my-2 hover selectable card elevation-5"
     @click="getDetails(pokemon)"
   >
     <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
-    <!-- <p v-for="t in pokemon?.types"> {{t?.type?.name}}</p> -->
+
     <p
       class="p-1 rounded text-center text-light fw-bold"
       v-for="t in pokemon.types"
@@ -32,7 +21,6 @@
 
 <script>
 import { computed } from "@vue/reactivity";
-
 
 import { onMounted, ref, watchEffect } from "vue";
 import { AppState } from "../AppState.js";

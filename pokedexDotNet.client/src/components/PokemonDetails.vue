@@ -1,8 +1,8 @@
 <template>
 
   <div class="card mt-2 rounded-4 position-relative w-100 p-3" v-if="pokemon">
-    <div class="pokemonImg">
-      <img :src="pokemon?.img" alt="" height="200" width="200" />
+    <div class="pokemonImg ">
+      <img :src="pokemon?.img" alt="" height="200" width="200"  class="animate__animated animate__fadeIn"/>
     </div>
 
  
@@ -99,9 +99,7 @@ import Pop from "../utils/Pop.js";
 
 export default {
   props: {
-    pokemon: {
-      type: PokemonDetail,
-    },
+   
   },
   setup(props) {
     const editable = ref({});
@@ -112,7 +110,7 @@ export default {
     return {
       editable,
       bar: computed(() => props?.pokemon?.stats?.map((s) => s.base_stat)),
-      details: computed(() => AppState.activePokemon),
+      pokemon: computed(() => AppState.activePokemon),
       img: computed(
         () =>
           AppState.activePokemon?.sprites.other["official-artwork"]

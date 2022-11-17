@@ -11,6 +11,7 @@ export class PokemonDetail {
     for (const type of this.types) {
       if (type.type.name == 'grass') {
         type.color = 'bg-success'
+        type.bgColor = 'bg-success2'
       }
       if (type.type.name == 'water') {
         type.color = 'bg-primary'
