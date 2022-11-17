@@ -47,10 +47,13 @@
           <li v-for="i in pokemon?.stats" class="list-group-item">
             <b>{{ i?.stat?.name }}</b>
             <div class="d-flex justify-content-between">
+            
               <div class="progress w-75">
                 <div
-                  class="progress-bar test"
-                  role="progressbar"
+               
+                  class="progress-bar test progress-bar-striped "
+                  :class="pokemon.types[0].color"
+                  role="progressbar "
                   aria-label="Example with label"
                   aria-valuenow=""
                   aria-valuemin="0"
@@ -60,7 +63,7 @@
                   {{ i?.base_stat }}
                 </div>
               </div>
-              <p class="mb-0 opacity-75 me-3">100</p>
+       
             </div>
           </li>
         </ul>
@@ -116,7 +119,6 @@ export default {
           AppState.activePokemon?.sprites.other["official-artwork"]
             .front_default
       ),
-      // sprites1:computed(() => AppState.activePokemon?.sprites),
     };
   },
 };

@@ -23,9 +23,9 @@ class PokemonService {
       const pokemon = await this.getPokemon(poke.id);
       AppState.pokemon.push(pokemon);
     }
-
-    console.log("[example]", AppState.pokemon);
-    //  console.log(AppState.example);
+    
+        //  console.log('[example]', AppState.pokemon);
+        //  console.log(AppState.example);
   }
   async getPokemon(id) {
     const res = await pokeAPI.get(`pokemon/${id}`);
@@ -38,6 +38,25 @@ class PokemonService {
     //  console.log(AppState.activePokemon);
     AppState.activePokemon = new PokemonDetail(res.data);
     // console.log(AppState.activePokemon);
+  }
+
+  async searchByQuery(name){
+    // console.log(name);
+    AppState.pokemon = []
+        const res = await pokeAPI.get(`pokemon/${name}`,{
+          params:{
+            limit:10
+          }
+        });
+        console.log(res.data);
+        AppState.activePokemon = new PokemonDetail(res.data)
+        // console.log(AppState.activePokemon);
+        // let pokemons = res.data.results.map((p) => new Pokemon(p));
+// AppState.pokemon = new PokemonDetail(res.data)
+        // for (const poke of pokemons) {
+        //   const pokemon = await this.getPokemon(poke.id);
+        //   AppState.pokemon.push(pokemon);
+        // }
   }
 }
 export const pokemonService = new PokemonService();

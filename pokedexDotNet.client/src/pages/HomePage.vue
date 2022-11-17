@@ -1,10 +1,12 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3 px-0 p">
-        <div class="p-1 bg-danger text-light text-center rounded">
-          <h4>Pokemon List</h4>
-        </div>
+
+<SearchBar/>
+
+    <div class="row mt-3 ms-3 justify-content-center">
+
+      <div class="col-md-4 px-0 p mt-5">
+   
         <div class="row px-3 scrollY">
           <div class="col-md-12" v-for="p in pokemon" :key="p.id">
             <PokeList :pokemon="p" />
@@ -14,9 +16,9 @@
           <PokeList v-for="p in pokemon" :pokemon="p" :key="p.id" />
         </ul> -->
       </div>
-      <div class="col-md-6 d-flex justify-content-center align-items-center ">
+      <!-- <div class="col-md-6 d-flex justify-content-center align-items-center ">
         <PokemonDetails :pokemon="details"/>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -47,6 +49,7 @@ export default {
     return {
       pokemon: computed(() => AppState.pokemon),
       details: computed(() => AppState.activePokemon),
+      
     };
   },
   components: { PokeList, PokemonDetails },
