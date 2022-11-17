@@ -85,9 +85,7 @@ export default {
 
 <style lang="scss" scoped>
 .pokeBg{
-  background-image: url(https://cdn-icons-png.flaticon.com/512/361/361998.png);
-  background-size: cover;
-  background-position: center;
+
   backdrop-filter: 40px;
 
 }
@@ -104,6 +102,11 @@ box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px
   background-color: v-bind(color23);
 }
 .hover {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/361/361998.png);
+  background-size: 100px;
+  background-position: 385px;
+  background-repeat: no-repeat;
+  
   transition: all 0.25s ease;
   padding: 3px;
   border-radius: 4px;

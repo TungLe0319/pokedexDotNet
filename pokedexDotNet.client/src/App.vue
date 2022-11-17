@@ -2,7 +2,7 @@
   <!-- <header>
     <Navbar />
   </header> -->
-  <main>
+  <main class="pokemon">
     <router-view />
   </main>
    <!-- <footer class="bg-dark text-light">
@@ -31,7 +31,14 @@ export default {
   --main-height: calc(100vh - 32px - 64px);
 }
 
+.pokemon{
+  background-image: url(https://cdn-icons-png.flaticon.com/512/1033/1033083.png);
+  background-size: 70%;
+  background-position: right;
+  background-repeat: no-repeat;
 
+
+}
 footer {
   display: grid;
   place-content: center;
