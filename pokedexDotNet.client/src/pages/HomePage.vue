@@ -34,6 +34,7 @@ export default {
   setup() {
     onMounted(() => {
       getAllPokemon();
+      getDetail()
     });
     async function getAllPokemon() {
       try {
@@ -41,6 +42,13 @@ export default {
       } catch (error) {
         Pop.error(error, "[getAllPokemon]");
       }
+    }
+    async function getDetail(){
+      try {
+          await pokemonService.getPokemonDetails()
+        } catch (error) {
+          Pop.error(error,'[]')
+        }
     }
     return {
       pokemon: computed(() => AppState.pokemon),
