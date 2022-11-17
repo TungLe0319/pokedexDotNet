@@ -10,13 +10,13 @@ class PokemonService {
         limit: 100,
       },
     });
-    console.log(res.data);
+    // console.log(res.data);
     let pokemons = res.data.results.map((p) => new Pokemon(p));
 
-    // for await(const poke of pokemons) {
-    //   poke = this.getAllPokemon(poke.id)
-    //   AppState.pokemon.push(poke)
-    // }
+    for (const poke of pokemons) {
+     const pokemon = await this.getPokemon(poke.id)
+      AppState.pokemon.push(pokemon)
+    }
     // AppState.pokemon = res.data.results.map((p) => new Pokemon(p));
          console.log('[example]', AppState.pokemon);
         //  console.log(AppState.example);
