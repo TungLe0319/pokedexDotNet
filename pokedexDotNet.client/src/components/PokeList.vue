@@ -11,14 +11,17 @@
    
   </li> -->
   <div
-    :class="active ? 'bg-primary' : ''"
+    :class="[{active:'bg-primary'}]"
+    
     class="my-2 hover selectable card elevation-5"
     @click="getDetails(pokemon)"
   >
     <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
     <!-- <p v-for="t in pokemon?.types"> {{t?.type?.name}}</p> -->
-    <p class="text-light" :class="t.type.name? `${t.type.color}` : 'bg-dark'" v-for="t in pokemon.types">
+    <p class=" p-1 rounded text-center text-light fw-bold " v-for="t in pokemon.types"  :class="t.color">
       {{ t.type.name }}
+  
+      
     </p>
     <div class="d-flex justify-content-end">
       <img :src="pokemon?.img" alt="" width="90" height="90" />
@@ -57,7 +60,7 @@ export default {
 
     return {
       editable,
-
+      color23: computed(() => props.pokemon?.types.color),
       active: computed(
         () => AppState.activePokemon?.name == props.pokemon?.name
       ),
@@ -75,6 +78,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.test2{
+  background-color: v-bind(color23);
+}
 .hover {
   transition: all 0.25s ease;
   padding: 3px;
