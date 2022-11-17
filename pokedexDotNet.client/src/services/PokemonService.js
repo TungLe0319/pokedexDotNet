@@ -10,6 +10,7 @@ class PokemonService {
         limit: 100,
       },
     });
+    console.log(res.data.results);
     let pokemons = res.data.results.map((p) => new Pokemon(p));
 
     // pokemons.forEach(async(poke) => {
