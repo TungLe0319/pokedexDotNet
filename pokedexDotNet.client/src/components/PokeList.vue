@@ -11,17 +11,18 @@
    
   </li> -->
   <div
-    :class="[{active:'bg-primary'}]"
-    
+    :class=" active? 'bg-primary' : '', pokemon.types[0].color "
     class="my-2 hover selectable card elevation-5"
     @click="getDetails(pokemon)"
   >
     <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
     <!-- <p v-for="t in pokemon?.types"> {{t?.type?.name}}</p> -->
-    <p class="text-light" v-for="t in pokemon.types">
-      <div :class="t.color? t.color : 'bg-dark'">
-{{t.type.name}}
-      </div>
+    <p
+      class="p-1 rounded text-center text-light fw-bold"
+      v-for="t in pokemon.types"
+      :class="t.color"
+    >
+      {{ t.type.name }}
     </p>
     <div class="d-flex justify-content-end">
       <img :src="pokemon?.img" alt="" width="90" height="90" />
@@ -65,10 +66,11 @@ export default {
       active: computed(
         () => AppState.activePokemon?.name == props.pokemon?.name
       ),
-      async getDetails() {
+      async getDetails(pokemon) {
         try {
-          let id = props.pokemon.id;
-          await pokemonService.getPokemonDetails(id);
+          AppState.activePokemon = pokemon;
+          // let id = props.pokemon.id;
+          // await pokemonService.getPokemonDetails(id);
         } catch (error) {
           Pop.error(error, "[getDetails]");
         }
@@ -79,7 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.test2{
+.test2 {
   background-color: v-bind(color23);
 }
 .hover {
