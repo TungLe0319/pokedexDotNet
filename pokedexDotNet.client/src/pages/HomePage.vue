@@ -14,8 +14,8 @@
           <PokeList v-for="p in pokemon" :pokemon="p" :key="p.id" />
         </ul> -->
       </div>
-      <div class="col-md-4 d-flex justify-content-center align-items-center">
-        <PokemonDetails :pokemon="details" />
+      <div class="col-md-6 d-flex justify-content-center align-items-center ">
+        <PokemonDetails :pokemon="details"/>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@ export default {
   setup() {
     onMounted(() => {
       getAllPokemon();
-      getDetail()
+    
     });
     async function getAllPokemon() {
       try {
@@ -43,13 +43,7 @@ export default {
         Pop.error(error, "[getAllPokemon]");
       }
     }
-    async function getDetail(){
-      try {
-          await pokemonService.getPokemonDetails()
-        } catch (error) {
-          Pop.error(error,'[]')
-        }
-    }
+  
     return {
       pokemon: computed(() => AppState.pokemon),
       details: computed(() => AppState.activePokemon),

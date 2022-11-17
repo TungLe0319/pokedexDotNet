@@ -10,5 +10,7 @@ export class PokemonDetail {
     this.types = data.types;
     this.stats = data.stats
     // this.abilityImg = 
+    this.evolutions=data.evolutions
+    this.sprites=data.sprites
   }
 }

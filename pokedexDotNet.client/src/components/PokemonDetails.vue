@@ -1,17 +1,6 @@
 <template>
-  <!-- <div class="card border-0 bg-transparent d-flex flex-column align-items-center" v-if="pokemon">
-  
-    <div class="card-body d-flex justify-content-center">
-      <div
-        class="rounded-5 p-2 mx-auto"
-        v-for="i  in pokemon.types"
-        :class="i?.type?.name == 'fire' ? 'bg-danger' : 'bg-primary'"
-      >
-        <h6>{{ i?.type?.name }}</h6>
-      </div>
-    </div>
-  </div> -->
-  <div class="card mt-2 rounded-4 position-relative w-100 p-3">
+
+  <div class="card mt-2 rounded-4 position-relative w-100 p-3" v-if="pokemon">
     <div class="pokemonImg">
       <img :src="pokemon?.img" alt="" height="200" width="200" />
     </div>
@@ -52,7 +41,7 @@
 
 
 
-    <div class="collapse" id="collapseStats">
+    <div class="collapse show" id="collapseStats">
       <div class="card-body">
         <ul class="list-group border-0">
           <li v-for="i in pokemon?.stats" class="list-group-item">
@@ -75,19 +64,26 @@
             </div>
           </li>
         </ul>
-      </div>
-    </div>
-
-
-       <div class="collapse" id="collapseAbilities">
-      <div class="card-body">
-        <ul class="list-group border-0">
+         <ul class="list-group border-0 mt-2">
           <li v-for="i in pokemon?.abilities" class="list-group-item">
-            <img :src="i?.ability.url" alt="" width="30" height="30">
+        
             <b>{{ i.ability.name }}</b>
           
           </li>
         </ul>
+      </div>
+    </div>
+
+
+       <div class="collapse" id="collapseEvolutions">
+      <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item"> <img :src="pokemon?.sprites.other.dream_world.front_default" alt="" class="img-fluid"></li>
+        <li class="list-group-item"> <img :src="pokemon?.sprites.front_shiny" alt="" class="img-fluid w-100"></li>
+        <li class="list-group-item"> <img :src="pokemon?.sprites.other.home.front_default" alt="" class="img-fluid"></li>
+       
+        <!-- <li></li> -->
+      </ul>
       </div>
     </div>
   </div>
@@ -122,6 +118,7 @@ export default {
           AppState.activePokemon?.sprites.other["official-artwork"]
             .front_default
       ),
+      // sprites1:computed(() => AppState.activePokemon?.sprites),
     };
   },
 };

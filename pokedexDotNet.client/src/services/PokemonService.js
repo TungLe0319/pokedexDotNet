@@ -27,7 +27,7 @@ class PokemonService {
   }
 
   async getPokemonDetails(id) {
-    const res = await pokeAPI.get(`pokemon/1`);
+    const res = await pokeAPI.get(`pokemon/${id}`);
     console.log("[activePokemon]", res.data);
     //  console.log(AppState.activePokemon);
     AppState.activePokemon = new PokemonDetail(res.data);
