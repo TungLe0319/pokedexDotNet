@@ -15,7 +15,7 @@ export class PokemonDetail {
       if (type.type.name == 'water') {
         type.color = 'bg-primary'
       }
-      if (type.type.name == 'lightning') {
+      if (type.type.name == 'electric') {
         type.color = 'bg-warning'
       }
       if (type.type.name == 'fire') {

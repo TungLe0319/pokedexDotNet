@@ -17,7 +17,7 @@ class PokemonService {
      const pokemon = await this.getPokemon(poke.id)
       AppState.pokemon.push(pokemon)
     }
-    // AppState.pokemon = res.data.results.map((p) => new Pokemon(p));
+    
          console.log('[example]', AppState.pokemon);
         //  console.log(AppState.example);
   }

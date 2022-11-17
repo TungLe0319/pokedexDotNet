@@ -18,10 +18,10 @@
   >
     <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
     <!-- <p v-for="t in pokemon?.types"> {{t?.type?.name}}</p> -->
-    <p class=" p-1 rounded text-center text-light fw-bold " v-for="t in pokemon.types"  :class="t.color">
-      {{ t.type.name }}
-  
-      
+    <p class="text-light" v-for="t in pokemon.types">
+      <div :class="t.color? t.color : 'bg-dark'">
+{{t.type.name}}
+      </div>
     </p>
     <div class="d-flex justify-content-end">
       <img :src="pokemon?.img" alt="" width="90" height="90" />
@@ -31,6 +31,7 @@
 
 <script>
 import { computed } from "@vue/reactivity";
+
 
 import { onMounted, ref, watchEffect } from "vue";
 import { AppState } from "../AppState.js";
