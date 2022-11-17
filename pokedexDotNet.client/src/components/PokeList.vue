@@ -1,13 +1,13 @@
 <template>
-  <li class="d-flex justify-content-between my-2" @click="getDetails()">
+  <li class="d-flex justify-content-between my-2 hover selectable" @click="getDetails()">
     <img
       width="30"
       height="30"
       src="https://cdn-icons-png.flaticon.com/512/361/361998.png"
       alt=""
     />
-    <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon.name }}</p>
-    <img :src="pokemon.img" alt="" width="50" height="50" />
+    <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
+    <img :src="pokemon?.img" alt="" width="50" height="50" />
     <!-- <img src="/resources/pokeball.png" alt="" style="width:1rem;" class="me-1">  -->
   </li>
 </template>
@@ -45,4 +45,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.hover {
+  transition: all 0.25s ease;
+  padding: 3px;
+  border-radius: 4px;
+}
+.hover:hover {
+  transform: scale(1.07);
+  transition: all 0.25s ease;
+  filter: saturate(120%);
+  filter: brightness(120%);
+  background-color: rgba(128, 128, 128, 0.425);
+}
+</style>
