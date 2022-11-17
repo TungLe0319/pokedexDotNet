@@ -15,7 +15,10 @@
   class=" my-2 hover selectable card elevation-5" @click="getDetails()">
   
     <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
+    <!-- <p v-for="t in pokemon?.types"> {{t?.type?.name}}</p> -->
+    <p class="bg-dark text-light">{{pokemon?.[0].type.name}}</p>
     <div class="d-flex justify-content-end">
+
       <img :src="pokemon?.img" alt="" width="90" height="90" />
 
     </div>
@@ -26,13 +29,14 @@
 import { computed } from "@vue/reactivity";
 import { onMounted, ref, watchEffect } from "vue";
 import { AppState } from "../AppState.js";
+import { Pokemon } from "../models/Pokemon.js";
 import { pokemonService } from "../services/PokemonService.js";
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
 
 export default {
   props: {
-    pokemon: { type: Object },
+    pokemon: { type: Pokemon },
   },
   setup(props) {
     const editable = ref({});
