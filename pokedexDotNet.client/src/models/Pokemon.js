@@ -6,6 +6,7 @@ export class Pokemon {
        this.name = data.name;
        this.url = data.url;
        this.img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.id}.png`;
+     
   }
 }
 

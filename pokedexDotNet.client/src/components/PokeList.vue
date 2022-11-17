@@ -1,5 +1,5 @@
 <template>
-  <li class="d-flex justify-content-between my-2 hover selectable" @click="getDetails()">
+  <!-- <li class="d-flex justify-content-between my-2 hover selectable" @click="getDetails()">
     <img
       width="30"
       height="30"
@@ -8,8 +8,18 @@
     />
     <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
     <img :src="pokemon?.img" alt="" width="50" height="50" />
-    <!-- <img src="/resources/pokeball.png" alt="" style="width:1rem;" class="me-1">  -->
-  </li>
+   
+  </li> -->
+  <div
+  :class="active? 'bg-primary':''"
+  class=" my-2 hover selectable card elevation-5" @click="getDetails()">
+  
+    <p class="mb-0 d-flex align-items-center ms-2">{{ pokemon?.name }}</p>
+    <div class="d-flex justify-content-end">
+      <img :src="pokemon?.img" alt="" width="90" height="90" />
+
+    </div>
+  </div>
 </template>
 
 <script>
@@ -32,6 +42,7 @@ export default {
 
     return {
       editable,
+      active:computed(() => AppState.activePokemon?.name == props.pokemon?.name),
       async getDetails() {
         try {
           let id = props.pokemon.id;

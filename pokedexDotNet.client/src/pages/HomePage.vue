@@ -2,15 +2,20 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4 px-0 p">
-        <div class="p-1 bg-danger text-light text-center">
+        <div class="p-1 bg-danger text-light text-center rounded">
           <h4>Pokemon List</h4>
         </div>
-        <ul class="px-3 m-0">
+        <div class="row px-3 scrollY">
+          <div class="col-md-4" v-for="p in pokemon" :key="p.id">
+            <PokeList :pokemon="p" />
+          </div>
+        </div>
+        <!-- <ul class="px-3 m-0">
           <PokeList v-for="p in pokemon" :pokemon="p" :key="p.id" />
-        </ul>
+        </ul> -->
       </div>
-      <div class="col-md-4">
-        <PokemonDetails :pokemonDetail="details" />
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <PokemonDetails :pokemon="details" />
       </div>
     </div>
   </div>
@@ -39,11 +44,17 @@ export default {
     }
     return {
       pokemon: computed(() => AppState.pokemon),
-      details: computed(()=> AppState.pokemonDetails)
+      details: computed(() => AppState.activePokemon),
     };
   },
   components: { PokeList, PokemonDetails },
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.scrollY {
+  height: 86vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+</style>

@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Pokemon } from "../models/Pokemon.js";
+import { PokemonDetail } from "../models/PokemonDetail.js";
 import { pokeAPI } from "./AxiosService.js";
 
 class PokemonService {
@@ -11,13 +12,14 @@ class PokemonService {
     });
     console.log(res.data);
     AppState.pokemon = res.data.results.map((p) => new Pokemon(p));
-    // AppState.pokemon.forEach(p => console.log(p.id))
+   
   }
 
   async getPokemonDetails(id) {
     const res = await pokeAPI.get(`pokemon/${id}`);
-    AppState.activePokemon = res.data;
+    AppState.activePokemon = new PokemonDetail(res.data);
     console.log(AppState.activePokemon);
   }
+
 }
 export const pokemonService = new PokemonService();
