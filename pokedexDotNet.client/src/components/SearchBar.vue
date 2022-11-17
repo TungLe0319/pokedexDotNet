@@ -3,9 +3,9 @@
       <div class="col-md-6 d-fex align-items-center">
         <form @submit.prevent="searchByQuery()">
 
-          <div class="input-group mb-3 rounded-5">
-      <button class="btn  " type="submit" id="basic-addon1"><i class="mdi mdi-magnify fs-2"></i></button>
-      <input v-model="editable" type="text" class="form-control rounded-5" :placeholder="editable.value" aria-label="Username" aria-describedby="basic-addon1"
+          <div class="input-group mb-3 rounded-5 elevation-5 searchContainer">
+      <button class="btn  d-flex justify-content-center " type="submit" ><i class="mdi mdi-magnify fs-2"></i></button>
+      <input v-model="editable" type="text" class="form-control rounded-5" aria-label="Username" placeholder="What pokemon do you want to search for?" aria-describedby="basic-addon1"
       >
     </div>
         </form>
@@ -26,7 +26,7 @@ props:{
 
        },
   setup(props) {
-    const editable = ref({});
+    const editable = ref('');
     
     onMounted(() => {
 
@@ -38,9 +38,10 @@ props:{
         async searchByQuery() {
               try {
                 await  pokemonService.searchByQuery(editable.value);
+                editable = ''
               } catch (error) {
                 
-                Pop.error(error, "[searchByQuery]");
+                Pop.error( "Refine Your Search");
               }
             },
       }
@@ -49,4 +50,12 @@ props:{
 </script>
 
 <style lang="scss" scoped>
+.searchContainer{
+  transition: all 0.25s ease;
+}
+.searchContainer:hover{
+color: rgb(249, 238, 238);
+background-color: purple;
+transition: all 0.25s ease;
+}
 </style>

@@ -22,9 +22,10 @@
 
       </div>
       <div class="col-md-6 d-flex align-items-center justify-content-center ">
- <div class="d-flex justify-content-end">
+ <div class="d-flex justify-content-end pokeBg">
 
       <img :src="pokemon?.img" alt="" width="100" height="100" />
+
     </div>
       </div>
     </div>
@@ -83,6 +84,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.pokeBg{
+  background-image: url(https://cdn-icons-png.flaticon.com/512/361/361998.png);
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: 40px;
+
+}
 .active{
 background-color: #4158D0;
 background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);

@@ -10,22 +10,16 @@ class PokemonService {
         limit: 100,
       },
     });
-    // console.log(res.data);
     let pokemons = res.data.results.map((p) => new Pokemon(p));
 
     // pokemons.forEach(async(poke) => {
     //   const pokes = await this.getPokemon(poke.id)
-
     // })
-
- 
     for (const poke of pokemons) {
       const pokemon = await this.getPokemon(poke.id);
       AppState.pokemon.push(pokemon);
     }
-    
-        //  console.log('[example]', AppState.pokemon);
-        //  console.log(AppState.example);
+
   }
   async getPokemon(id) {
     const res = await pokeAPI.get(`pokemon/${id}`);
@@ -41,8 +35,8 @@ class PokemonService {
   }
 
   async searchByQuery(name){
-    // console.log(name);
-    AppState.pokemon = []
+    console.log(name);
+    // AppState.pokemon = []
         const res = await pokeAPI.get(`pokemon/${name}`,{
           params:{
             limit:10

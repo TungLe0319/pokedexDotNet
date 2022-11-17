@@ -1,5 +1,10 @@
 <template>
   <div class="container-fluid">
+<div class="row my-2">
+  <div class="col-md-12 text-center">
+    <h1>PokeDex</h1>
+  </div>
+</div>
 
 <SearchBar/>
 
@@ -12,9 +17,6 @@
             <PokeList :pokemon="p" />
           </div>
         </div>
-        <!-- <ul class="px-3 m-0">
-          <PokeList v-for="p in pokemon" :pokemon="p" :key="p.id" />
-        </ul> -->
       </div>
       <div class="col-md-6 d-flex justify-content-center align-items-center ">
         <PokemonDetails :pokemon="details"/>
