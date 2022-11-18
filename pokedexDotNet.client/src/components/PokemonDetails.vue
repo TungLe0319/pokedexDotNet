@@ -21,11 +21,11 @@
       class="btn border-0 border-bottom "
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#collapseAbilities"
+      data-bs-target="#collapseMoves"
       aria-expanded="false"
       aria-controls="collapseStats"
     >
-      Abilities
+      Moves/Abilities
     </button>
       <button
       class="btn border-0 border-bottom "
@@ -65,6 +65,19 @@
               </div>
        
             </div>
+          </li>
+        </ul>
+     
+      </div>
+    </div>
+    <div class="collapse show" id="collapseMoves">
+      <div class="card-body">
+       
+          <ul class="list-group border-0 mt-2">
+          <li v-for="i in pokemon?.moves" class="list-group-item">
+        
+            <b>{{ i.move.name }}</b>
+          
           </li>
         </ul>
          <ul class="list-group border-0 mt-2">

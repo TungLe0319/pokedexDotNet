@@ -7,10 +7,10 @@ class PokemonService {
   async getAllPokemon() {
     const res = await pokeAPI.get("pokemon", {
       params: {
-        limit: 100,
+        limit: 5,
       },
     });
-    console.log(res.data.results);
+    // console.log(res.data.results);
     let pokemons = res.data.results.map((p) => new Pokemon(p));
 
     // pokemons.forEach(async(poke) => {
@@ -18,12 +18,14 @@ class PokemonService {
     // })
     for (const poke of pokemons) {
       const pokemon = await this.getPokemon(poke.id);
+      // console.log(pokemon);
       AppState.pokemon.push(pokemon);
     }
 
   }
   async getPokemon(id) {
     const res = await pokeAPI.get(`pokemon/${id}`);
+    console.log(res.data);
     return new PokemonDetail(res.data);
   }
 
@@ -52,6 +54,16 @@ class PokemonService {
         //   const pokemon = await this.getPokemon(poke.id);
         //   AppState.pokemon.push(pokemon);
         // }
+  }
+
+  async getRandomPokemon(){
+    let id = Math.floor(Math.random() * 1000)
+    // console.log(id);
+      const res = await pokeAPI.get(`pokemon/${id}`);
+    console.log("[activePokemon]", res.data);
+    //  console.log(AppState.activePokemon);
+    AppState.activePokemon = new PokemonDetail(res.data);
+    // console.log(AppState.activePokemon);
   }
 }
 export const pokemonService = new PokemonService();

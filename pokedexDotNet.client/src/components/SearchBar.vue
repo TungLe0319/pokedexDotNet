@@ -10,6 +10,11 @@
     </div>
         </form>
       </div>
+      <div class="col-md-1">
+        <router-link :to="{name: 'Guess', params:{ }}"> 
+        <button class="btn btn-danger"> Play GuessWho </button>
+        </router-link>
+      </div>
     </div>
 </template>
 
