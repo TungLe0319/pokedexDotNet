@@ -13,13 +13,13 @@
       </div>
       <div class="col-md-2 ms-5">
        <h5 class="rounded p-1 bg-light text-center"> Take a Guess</h5>
-        <ul class="list-group">
+        <!-- <ul class="list-group">
           
           <li class="list-group-item text-center my-1">  <p class="fw-bold fs-3"> {{pokemon.name}}</p> </li>
           <li class="list-group-item text-center my-1">  <p class="fw-bold fs-3"> {{pokemon.name}}</p> </li>
           <li class="list-group-item text-center my-1">  <p class="fw-bold fs-3"> {{pokemon.name}}</p> </li>
           <li class="list-group-item text-center my-1">  <p class="fw-bold fs-3"> {{pokemon.name}}</p> </li>
-        </ul>
+        </ul> -->
       </div>
   </div>
 </div>

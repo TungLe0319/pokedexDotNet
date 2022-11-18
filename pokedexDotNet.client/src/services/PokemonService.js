@@ -42,7 +42,6 @@ class PokemonService {
     // AppState.pokemon = []
         const res = await pokeAPI.get(`pokemon/${name}`,{
           params:{
-            limit:10
           }
         });
         console.log(res.data);
