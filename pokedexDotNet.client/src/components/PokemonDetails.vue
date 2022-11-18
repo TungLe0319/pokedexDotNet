@@ -2,7 +2,7 @@
 
   <div class="card mt-2 rounded-4 position-relative w-100 p-3" v-if="pokemon">
     <div class="pokemonImg ">
-      <img :src="pokemon?.img" alt="" height="200" width="200"  class="animate__animated animate__fadeIn"/>
+      <img :src="pokemon?.img" alt="" height="250" width="250"  class="animate__animated animate__fadeIn"/>
     </div>
 
  
@@ -45,7 +45,7 @@
       <div class="card-body">
         <ul class="list-group border-0">
           <li v-for="i in pokemon?.stats" class="list-group-item">
-            <b>{{ i?.stat?.name }}</b>
+            <b class="text-decoration-underline">{{ i?.stat?.name }}</b>
             <div class="d-flex justify-content-between">
             
               <div class="progress w-75">
