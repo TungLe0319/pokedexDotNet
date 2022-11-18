@@ -56,7 +56,7 @@ class PokemonService {
   }
 
   async getRandomPokemon(){
-    let id = Math.floor(Math.random() * 1000)
+    let id = Math.floor(Math.random() * 928)
     // console.log(id);
       const res = await pokeAPI.get(`pokemon/${id}`);
     console.log("[activePokemon]", res.data);

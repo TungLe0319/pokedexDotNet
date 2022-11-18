@@ -1,5 +1,12 @@
 <template>
 <div class="container">
+  <div class="row d-flex justify-content-end mt-2">
+    <div class="col-md-1">
+      <router-link :to="{name: 'Home', params:{ }}"> 
+      <button class="btn btn-primary">Pokedex</button>
+      </router-link>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12 ">
      <h1> Guess That Pokemon</h1>

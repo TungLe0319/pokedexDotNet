@@ -1,14 +1,16 @@
-
 {
   "folders": [
     {
-      "path": "pokedexDotNet.client",
-      "name": "client"
-    },
-    {
       "path": "pokedexDotNet",
       "name": "server"
-    },{"path":".github/workflows", "name":"workflows"}
+    },
+    {
+      "path": ".github/workflows",
+      "name": "workflows"
+    },
+    {
+      "path": "../PokeGame/PokeGame.client"
+    }
   ],
   "settings": {
     "editor.suggestSelection": "first",
